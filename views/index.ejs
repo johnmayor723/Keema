@@ -1,0 +1,132 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Template 14 | SoonLaunch</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="SoonLaunch">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="assets/css/bootstrap-4.5.0.min.css">
+    <link rel="stylesheet" href="assets/css/lineicons.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .content-wrapper h1 {
+            color: white;
+        }
+        .keema-description {
+            color: #FE9801; /* Orange color */
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!--[if lte IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+
+    <!-- ========================= main-wrapper start ========================= -->
+    <main class="main-14">
+       <div class="main-wrapper demo-14" style="background-image: url('assets/img/keema.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <!-- shapes start  -->
+    <img src="assets/img/shape-1.svg" alt="" class="shape shape-1">
+    <img src="assets/img/shape-2.svg" alt="" class="shape shape-2">
+    <img src="assets/img/shape-3.svg" alt="" class="shape shape-3">
+    <img src="assets/img/shape-4.svg" alt="" class="shape shape-4">
+    <img src="assets/img/shape-5.svg" alt="" class="shape shape-5">
+    <img src="assets/img/shape-6.svg" alt="" class="shape shape-6">
+    <!-- shapes end  -->
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-8 col-md-10">
+                <!-- content-wrapper start  -->
+                <div class="content-wrapper" style="text-align: center; background-color: rgba(0, 0, 0, 0.6); padding: 40px; border-radius: 12px;">
+<img style="height:60px" src="/assets/img/keemalogo.png"> <br> 
+<h1 style="font-weight: 400; font-size: 2rem;">Coming Soon</h1>
+                    
+                    <p class="keema-description" style="font-size:1.2rem; font-weight:; color:#FE9801;">
+                        Keema is your all-in-one lifestyle app, designed to simplify your everyday needs. Whether you're booking a ride, ordering groceries, hiring trusted artisans, shopping for fashion, buying a car, or exploring real estate — Keema puts it all at your fingertips.<br>
+
+🚀 Sign up now for early access and be the first to experience the future of convenience!<br><br>
+
+
+                    </p>
+
+                 
+                    <!-- subscribe-form start -->
+                    <form
+                        action="/early-access"
+                        method="POST"
+                       >
+                        
+                        <input type="email" name="EMAIL" id="EMAIL" class="required email" placeholder="Enter Mail Address" style="padding: 12px; width: 100%; max-width: 400px; border-radius: 6px; border: none; margin-bottom: 20px;" required>
+
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>
+
+                        <button id="subscribe" class="sub_btn common-btn" style="padding: 12px 24px; background-color: #FE9801; color: white; font-weight: bold; border: none; border-radius: 6px; cursor: pointer;">
+                            Add Waiting List
+                        </button>
+                    </form>
+                    <!-- subscribe-form end -->
+                </div>
+                <!-- content-wrapper end -->
+            </div>
+        </div>
+    </div>
+</div>
+    </main>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const countdownElement = document.querySelector("[data-countdown]");
+    if (!countdownElement) return;
+
+    const targetDate = new Date(countdownElement.getAttribute("data-countdown")).getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        countdownElement.innerHTML = "We're Live!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = `
+        <div style="font-size: 1.5rem; color: white;">
+          ${days}d ${hours}h ${minutes}m ${seconds}s
+        </div>
+      `;
+    }
+
+    updateCountdown(); // initial call
+    setInterval(updateCountdown, 1000); // update every second
+  });
+</script>
+    <!-- ========================= main-wrapper end ========================= -->
+
+    <!-- ========================= JS here ========================= -->
+    <script src="assets/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap-4.5.0.min.js"></script>
+    <script src="assets/js/countdown.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
