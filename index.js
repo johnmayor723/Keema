@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 
 // POST route for early access form
 app.post('/early-access', async (req, res) => {
-  const { name, email } = req.body;
+  const { email } = req.body;
 
   // Configure Nodemailer
   const transporter = nodemailer.createTransport({
@@ -36,11 +36,11 @@ app.post('/early-access', async (req, res) => {
  
   const mailOptions = {
     from: '"Keema Early Access" <marketpicks723@gmail.com>', // Replace with sender email
-    to: 'support@keema.com.ng',
+    to: 'keema.com.ng@gmail.com',
     subject: 'New Early Access Signup',
     html: `
       <h3>New Early Access Request</h3>
-      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Name:</strong> </p>
       <p><strong>Email:</strong> ${email}</p>
     `
   };
