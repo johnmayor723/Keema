@@ -1,0 +1,81 @@
+    <!-- Display success message -->
+    <% if (success_msg.length > 0) { %>
+        <div class="alert alert-success">
+            <%= success_msg %>
+        </div>
+    <% } %>
+
+    <!-- Display error message -->
+    <% if (error_msg.length > 0) { %>
+        <div class="alert alert-danger">
+            <%= error_msg %>
+        </div>
+    <% } %>
+ <div class="container py-5">
+         <div style="margin-top:40px">
+             <p style="color:white">
+                 Arsenal receive Myles Lewis-Skelly referee red card appeal verdict after 'major' Michael Oliver error
+
+             </p>
+         </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+      
+      <div class="card shadow">
+        <div class="card-body">
+          <!-- Form Heading -->
+          <h5 class="card-title text-center mb-3">
+        
+              Your Markets Pick Account
+            
+              
+          </h5>
+          
+          
+
+          <!-- Form -->
+         
+            <div style="margin-top:20px">
+                 <strong> <p>
+                Verifying your Phone Number: +234 <%=phoneNumber%>
+                </p></strong>
+             </div>
+              <!-- Form -->
+          <form action='/confirm-otp'  method="POST">
+             <input
+                type="hidden"
+                class="form-control shadow-sm"
+                id="email"
+                name="phoneNumber"
+                value="<%=phoneNumber%>"
+                required
+                placeholder="Enter your email"
+              >
+                <input
+                type="string"
+                class="form-control shadow-sm"
+                id="email"
+                name="otp"
+                required
+                placeholder="Enter OTP"
+              >
+            <!-- Submit Button -->
+            <div class="text-center">
+             <button class="btn btn-success w-100 shadow-sm" id="submitBtn" type="submit">
+                Send OTP
+              </button>
+            </form>
+              
+            
+
+              
+            </div>
+          
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

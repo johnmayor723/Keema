@@ -16,16 +16,16 @@ const nodemailer = require('nodemailer');
 const ID = "328728614931-3ksi7t8cv8pt1t0d1us8d9opeg6rsnvr.apps.googleusercontent.com";
 const SECRET = "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";
 
-const API_URL = "https://api.foodliie.com/api/products";
+const API_URL = "http://localhost:3010/api/products";
 
-const AUTH_API_URL = "https://api.foodliie.com/api/auth";
+const AUTH_API_URL = "http://localhost:3010/api/auth";
 
 // Homepage route
 router.get("/", async (req, res) => {
   try {
     const { data: products } = await axios.get(API_URL);
     const suggestedProducts = products.sort(() => 0.5 - Math.random()).slice(0, 8);
-    res.render("Homepage", { products, title: "Home" ,
+    res.render("index", { products, title: "Home" ,
         suggestedProducts
     });
   } catch (err) {
@@ -54,6 +54,30 @@ router.get("/products/categories/:category", async (req, res) => {
   } catch (err) {
     res.status(500).send("Error loading category products");
   }
+});
+
+// Get services by category
+router.get("/services/:category", async (req, res) => {
+    console.log("reached service category route");
+    try {
+        const category = req.params.category; // Get the category from the URL
+        const { data: products } = await axios.get(API_URL); // Fetch all services
+
+        // Filter services based on category
+        const filteredServices = products.filter(service =>
+            service.category.toLowerCase().replace(/[\s&]/g, '-') === category
+        );
+
+        console.log(filteredServices);
+        res.render("categories", { 
+            title: category.replace(/-/g, ' ').toUpperCase(), // Format category for display
+            products: filteredServices 
+        });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error loading category services");
+    }
 });
 
 // Auth routes
