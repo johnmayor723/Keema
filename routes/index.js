@@ -16,9 +16,9 @@ const nodemailer = require('nodemailer');
 const ID = "328728614931-3ksi7t8cv8pt1t0d1us8d9opeg6rsnvr.apps.googleusercontent.com";
 const SECRET = "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";
 
-const API_URL = "http://localhost:3010/api/products";
+const API_URL = "http://keema.com.ng/api/products";
 
-const AUTH_API_URL = "http://localhost:3010/api/auth";
+const AUTH_API_URL = "http://keema.com.ng/api/auth";
 
 // Homepage route
 router.get("/", async (req, res) => {
@@ -92,7 +92,7 @@ router.get("/profile", async (req, res) => {
     }
 
     // Send request to fetch profile data
-    const response = await axios.post("https://api.foodliie.com/api/auth/profile", { userId }, {
+    const response = await axios.post("https://keema.com.ng/api/auth/profile", { userId }, {
       headers: { "Content-Type": "application/json" },
     });
 
@@ -158,7 +158,7 @@ router.post("/send-otp", async (req, res) => {
   const { name, phoneNumber } = req.body;
 
   try {
-    await axios.post("https://api.foodliie.com/api/auth/send-otp", { name, phoneNumber });
+    await axios.post("https://keema.com.ng/api/auth/send-otp", { name, phoneNumber });
     res.render("send-otp", { phoneNumber, title: "" });
   } catch (error) {
     res.status(500).send("Error sending OTP");
@@ -170,7 +170,7 @@ router.post("/confirm-otp", async (req, res) => {
   const { phoneNumber, otp } = req.body;
    console.log(req.body);
   try {
-    const response = await axios.post("https://api.foodliie.com/api/auth/confirm-otp", {
+    const response = await axios.post("https://keema.com.ng/api/auth/confirm-otp", {
       phoneNumber,
       otp,
     });
@@ -191,7 +191,7 @@ router.post("/confirm-otp", async (req, res) => {
 
 // **Step 1: Redirect to Google OAuth**
 router.get("/auth/google", (req, res) => {
-    const redirectUri = "https://marketspick.com/auth/google/callback"; // Web app redirect
+    const redirectUri = "https://keema.com.ng/auth/google/callback"; // Web app redirect
     const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${ID}&redirect_uri=${redirectUri}&response_type=code&scope=email%20profile`;
 
     res.redirect(authUrl); // Redirect user to Google
@@ -215,7 +215,7 @@ router.get("/auth/google/callback", async (req, res) => {
             client_id: ID,
             client_secret: SECRET,
             code,
-            redirect_uri: "https://marketspick.com/auth/google/callback",
+            redirect_uri: "https://keema.com.ng/auth/google/callback",
             grant_type: "authorization_code",
         });
 
@@ -241,7 +241,7 @@ router.get("/auth/google/callback", async (req, res) => {
 
         // Send User to API for Registration/Login
         console.log("Sending user data to API:", googleUser);
-        const apiResponse = await axios.post("https://api.foodliie.com/api/auth/google", {
+        const apiResponse = await axios.post("https://keema.com.ng/api/auth/google", {
             email: googleUser.email,
             name: googleUser.name,
             googleId: googleUser.id, // Prevent duplicate registration
@@ -270,7 +270,7 @@ router.post("/register", async (req, res) => {
   try {
     console.log("➡ Sending request to API with data:", { name, email, password });
 
-    const response = await axios.post("https://api.foodliie.com/api/auth/register", {
+    const response = await axios.post("https://keema.com.ng/api/auth/register", {
       name,
       email,
       password,
@@ -367,7 +367,7 @@ router.post("/request-password-reset", async (req, res) => {
 
     try {
         // Make request to Foodliie's API
-        const response = await axios.post("https://api.foodliie.com/api/auth/request-password-reset", { email });
+        const response = await axios.post("https://keema.com.ng/api/auth/request-password-reset", { email });
 
         // Redirect to a confirmation page (or show a success message)
         req.flash("success_msg", response.data.message)
@@ -399,7 +399,7 @@ router.get("/api/auth/reset-password/:token", (req, res) => {
 
     try {
         // API expects token in both request parameter and payload
-        const response = await axios.post(`https://api.foodliie.com/api/auth/reset-password/${token}`, {
+        const response = await axios.post(`https://keema.com.ng/api/auth/reset-password/${token}`, {
             token, // Token also included in the request body
             newPassword:password,
         });
@@ -419,7 +419,7 @@ router.post("/addToWishlist", async (req, res) => {
   const { productId } = req.body;
 
   try {
-    const response = await axios.post("http://localhost:5000/api/auth/addToWishlist", { productId });
+    const response = await axios.post("http://keema.com.ng/api/auth/addToWishlist", { productId });
 
     res.status(response.status).json(response.data);
   } catch (error) {
@@ -434,7 +434,7 @@ router.post("/addToRecentlyViewed", async (req, res) => {
   const { productId } = req.body;
 
   try {
-    const response = await axios.post("http://localhost:5000/api/auth/addToRecentlyViewed", { productId });
+    const response = await axios.post("http://keema.com.ng/api/auth/addToRecentlyViewed", { productId });
 
     res.status(response.status).json(response.data);
   } catch (error) {
@@ -449,7 +449,7 @@ router.post("/updateAddress", async (req, res) => {
   const { hnumber, street, city, state } = req.body;
 
   try {
-    const response = await axios.post("http://localhost:5000/api/auth/updateAddress", {
+    const response = await axios.post("http://keema.com.ng/api/auth/updateAddress", {
       hnumber,
       street,
       city,
@@ -469,7 +469,7 @@ router.post("/getUserProfile", async (req, res) => {
   const { userId } = req.body;
 
   try {
-    const response = await axios.post("http://localhost:5000/api/auth/getUserProfile", { userId });
+    const response = await axios.post("http://keema.com.ng/auth/getUserProfile", { userId });
 
     res.status(response.status).json(response.data);
   } catch (error) {
@@ -510,7 +510,7 @@ router.get("/products/categories/:categoryName", async (req, res) => {
 
     try {
         // Make a GET request to the external API to fetch products
-        const response = await axios.get(`http://api.foodliie.com/api/categories/${category}`);
+        const response = await axios.get(`http://keema.com.ng/api/categories/${category}`);
         
 
         // Log the response data (for debugging purposes)
@@ -606,7 +606,7 @@ router.post('/enquiries', async (req, res) => {
           </div>
           <div>
             <h2 style="color: #2D7B30;">Hello, ${name}!</h2>
-            <p style="font-size: 16px; color: #333;">Thank you for reaching out to FoodDeck. We’ve received your message and will get back to you as soon as possible.</p>
+            <p style="font-size: 16px; color: #333;">Thank you for reaching out to Keema. We’ve received your message and will get back to you as soon as possible.</p>
             <p style="font-size: 16px; color: #333;">Your Message:</p>
             <blockquote style="font-size: 14px; font-style: italic; background: #f9f9f9; padding: 10px; border-left: 4px solid #2D7B30; margin: 20px 0;">${message}</blockquote>
           </div>
@@ -614,7 +614,7 @@ router.post('/enquiries', async (req, res) => {
             <p>FoodDeck</p>
             <p>The City Mall, Onikan, Lagos</p>
             <p>Email: info@fooddeckpro.com.ng | Phone: +234 912 390 7060</p>
-            <p>Website: <a href="https://www.fooddeckpro.com.ng" style="color: #2D7B30;">www.fooddeckpro.com.ng</a></p>
+            <p>Website: <a href="https:/keema.com.ng" style="color: #2D7B30;">keema.com.ng</a></p>
           </footer>
         </div>
       `,
