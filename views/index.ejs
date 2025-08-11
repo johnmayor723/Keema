@@ -1,3 +1,4 @@
+
 <style>
   /* Category Grid Styling */
   .category-grid {
@@ -113,6 +114,131 @@
     background-color: #fff; /* Optional: adds contrast behind image */
   }
 }
+
+.hero-section {
+  
+  min-height: 350pxß;
+}
+
+.category-sidebar {
+  background: linear-gradient(to bottom, #000, #222);
+  padding: 30;
+  border-radius: 5px;
+}
+
+.category-link {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.category-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.divider {
+  margin: 0;
+  border-color: white;
+  opacity: 0.3;
+}
+
+.img-circle {
+  background-color: white;
+  padding: 10px;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-orange {
+  color: orange;
+}
+.mobile-hero-card {
+  margin-top: 40px;
+  background-color: #0e0e1f;
+  min-height: 350px;
+  margin-bottom: 15px;
+}
+
+.hero-mobile-image {
+  width: 90px;
+  height: 90px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-hero-card h5 {
+  font-size: 1.1rem;
+  min-height: 350px;
+}
+
+    .promo-slide {
+      margin-top: 10px;
+      background-color: #0e0f1a;
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      color: white;
+      position: relative;
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background-color: #ffd95c;
+      color: #000;
+      font-weight: bold;
+      border-radius: 50px;
+      padding: 0.4rem 1rem;
+      font-size: 0.9rem;
+      z-index: 2;
+    }
+
+    .promo-img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #ffc107;
+    }
+
+    .shop-btn {
+      background-color: #4e5cf4;
+      border: none;
+      color: white;
+      border-radius: 10px;
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+    }
+
+    .decor-line {
+      width: 50px;
+      height: 6px;
+      background: linear-gradient(to right, #ffd95c, #fff);
+      border-radius: 3px;
+      margin-top: 1rem;
+    }
+
+    .slide-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .promo-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-top: 2rem;
+    }
 </style>
 <!-- Hero Start -->
 <div class="container-fluid py-5 mb-5 hero-header">
@@ -129,70 +255,665 @@
             <%= error_msg %>
         </div>
     <% } %>
+    <section class="hero-section text-white d-block d-md-none">
+      <div class="container-fluid">
+        <div class="row">
 
-    <div class="container py-5">
-        <div class="row g-5 align-items-center">
-            <div class="col-md-12 col-lg-7">
-                <h4 style="color:#FE9801" class="mb-3"></h4>
-                <h1 style="color:#2D7B30;" class="mb-5 display-3">Welcome To Keema</h1>
+          <!-- 🔵 Mobile Hero Carousel (only on sm and below) -->
+          <div class="col-12  px-3">
+            <div id="mobilePromoCarousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                  <div class="promo-slide">
+                    <div class="discount-badge">22% Off</div>
+                    <div class="slide-content">
+                      <div class="text">
+                        <h2 class="promo-title">Cosmetics Sale<br>for Women</h2>
+                        <button class="shop-btn">Shop Now</button>
+                        <div class="decor-line"></div>
+                      </div>
+                      <img src="/img/ai.jpg" alt="Promo 1" class="promo-img">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                  <div class="promo-slide">
+                    <div class="discount-badge">15% Off</div>
+                    <div class="slide-content">
+                      <div class="text">
+                        <h2 class="promo-title">Skincare Picks</h2>
+                        <button class="shop-btn">Explore</button>
+                        <div class="decor-line"></div>
+                      </div>
+                      <img src="/img/ai.jpg" alt="Promo 2" class="promo-img">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                  <div class="promo-slide">
+                    <div class="discount-badge">30% Off</div>
+                    <div class="slide-content">
+                      <div class="text">
+                        <h2 class="promo-title">Blush & Glam</h2>
+                        <button class="shop-btn">Buy Now</button>
+                        <div class="decor-line"></div>
+                      </div>
+                      <img src="/img/ai.jpg" alt="Promo 3" class="promo-img">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Controls -->
+              <button class="carousel-control-prev" type="button" data-bs-target="#mobilePromoCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#mobilePromoCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </button>
             </div>
-            <div class="col-md-12 col-lg-5">
-                <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
-                    <div class="carousel-inner" role="listbox">
-                        
-                        <div class="carousel-item rounded">
-                            <img src="img/mobilebanner.png" class="img-fluid w-100 h-100 rounded" alt="Second slide">
-                            <a href="#" class="btn px-4 py-2 text-white rounded"></a>
+          </div>
+    </section>
+
+    <section class="hero-section text-white">
+      <div class="container-fluid">
+        <div class="row">
+
+          <!-- Left Column - Category Links (Desktop only) -->
+                
+        <div class="col-md-3 d-none d-md-block p-4">
+          <div class="category-sidebar p-3 h-100">
+            <a href="/services/car-purchase" class="category-link">Automobile</a>
+            <hr class="divider">
+            <a href="/services/fashion-shopping" class="category-link">Clothing</a>
+            <hr class="divider">
+            <a href="#" class="category-link">Perfumes</a> <!-- No match provided -->
+            <hr class="divider">
+            <a href="/services/grocery-ordering" class="category-link">Grocery</a>
+            <hr class="divider">
+            <a href="/services/ride-booking" class="category-link">Ride Booking</a>
+            <hr class="divider">
+            <a href="/services/artisan-hiring" class="category-link">Hire Artisans</a>
+            <hr class="divider">
+            <a href="#" class="category-link">Errand Services</a> <!-- No match provided -->
+            <hr class="divider">
+            <a href="/services/computers" class="category-link">Computers</a>
+            <hr class="divider">
+            <a href="/services/mobile-gadgets" class="category-link">Mobile & Gadgets</a>
+          </div>
+        </div>
+
+
+          <!-- Right Column - Hero Slider -->
+          <div class=" col-md-9 p-4 d-none d-md-block">
+            <div class="hero-slider-container p-3 h-100 d-flex align-items-center" style="background: linear-gradient(to bottom, #000, #222);">
+              <div id="heroCarousel" class="carousel slide w-100" data-bs-ride="carousel">
+                <div class="carousel-inner">
+
+                  <!-- Slide 1 -->
+                  <div style="border-radius: 20px;"  class="carousel-item active">
+                    <div class="row align-items-center">
+                      <div class="col-md-6">
+                        <h1 class="display-5 fw-bold text-warning">Shop Smarter</h1>
+                        <p class="lead text-white-50">Get your everyday needs delivered with ease and speed — from fashion to food.</p>
+                      </div>
+                      <div class="col-md-6 d-flex justify-content-center">
+                        <div class="img-circle">
+                          <img src="/img/ai.jpg" alt="Shop Image" class="img-fluid rounded-circle">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Slide 2 -->
+                  <div style="border-radius: 20px;"  class="carousel-item">
+                    <div class="row align-items-center">
+                      <div class="col-md-6">
+                        <h1 class="display-5 fw-bold text-orange">Book Rides & Services</h1>
+                        <p class="lead text-white-50">From quick errands to reliable ride bookings — all in one place.</p>
+                      </div>
+                      <div class="col-md-6 d-flex justify-content-center">
+                        <div class="img-circle">
+                          <img src="/img/ai.jpg" alt="Ride Image" class="img-fluid rounded-circle">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Add more slides as needed -->
+
+                </div>
+
+                <!-- Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+</div>
+<!-- Hero End -->
+
+
+<!-- Keema Categories (Small Screens Only) -->
+<section class="d-block d-md-none mt-5 px-3">
+  <h5 class="text-center mb-3 fw-bold" style="color: #2D7B30;">Explore Keema</h5>
+
+  <div class="d-flex flex-wrap justify-content-center gap-2">
+    <a href="/services/ride-booking" class="btn btn-outline-dark rounded-pill px-3 py-2">Ride Booking</a>
+    <a href="/services/grocery-ordering" class="btn btn-outline-dark rounded-pill px-3 py-2">Groceries</a>
+    <a href="/services/artisan-hiring" class="btn btn-outline-dark rounded-pill px-3 py-2">Artisan Hiring</a>
+    <a href="/services/fashion-shopping" class="btn btn-outline-dark rounded-pill px-3 py-2">Fashion Shopping</a>
+    <a href="/services/car-purchase" class="btn btn-outline-dark rounded-pill px-3 py-2">Car Purchase</a>
+    <a href="/services/real-estate" class="btn btn-outline-dark rounded-pill px-3 py-2">Real Estate</a>
+    <a href="/services/computers" class="btn btn-outline-dark rounded-pill px-3 py-2">Computers</a>
+    <a href="/services/mobile-gadgets" class="btn btn-outline-dark rounded-pill px-3 py-2">Mobile & Gadgets</a>
+  </div>
+</section>
+
+<div class="container" id="productCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+  <style>
+    #productCarousel img {
+      height: 80px;
+      padding: 3px;
+      object-fit: cover;
+    }
+  </style>
+    <div class="carousel-inner">
+      
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="row">
+          <!-- Card 1 -->
+          <div class="col-6 col-md-3 mb-3">
+            <div class="card text-white rounded-4 p-2" style="background: linear-gradient(to bottom right, #ccc, #eee);">
+              <span class="badge bg-primary position-absolute top-0 start-0 m-2">New</span>
+              <h6 class="mt-5 mb-2">Item Title 1</h6>
+              <div class="d-flex justify-content-between">
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      </div>
+                    </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-6 col-md-3 mb-3">
+                    <div class="card text-white rounded-4 p-2" style="background: linear-gradient(to bottom right, #ccc, #eee);">
+                      <span class="badge bg-danger position-absolute top-0 start-0 m-2">Hot</span>
+                      <h6 class="mt-5 mb-2">Item Title 2</h6>
+                      <div class="d-flex justify-content-between">
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      </div>
+                    </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="col-6 col-md-3 mb-3 d-none d-md-block">
+                    <div class="card text-white rounded-4 p-2" style="background: linear-gradient(to bottom right, #ccc, #eee);">
+                      <span class="badge bg-success position-absolute top-0 start-0 m-2">Sale</span>
+                      <h6 class="mt-5 mb-2">Item Title 3</h6>
+                      <div class="d-flex justify-content-between">
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      </div>
+                    </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="col-6 col-md-3 mb-3 d-none d-md-block">
+                    <div class="card text-white rounded-4 p-2" style="background: linear-gradient(to bottom right, #ccc, #eee);">
+                      <span class="badge bg-warning text-dark position-absolute top-0 start-0 m-2">Top</span>
+                      <h6 class="mt-5 mb-2">Item Title 4</h6>
+                      <div class="d-flex justify-content-between">
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                  </div>
+
+                  <!-- Slide 2 -->
+                  <div class="carousel-item">
+                  <div class="row">
+                    <!-- Repeat 4 more cards -->
+                    <div class="col-6 col-md-3 mb-3">
+                    <div class="card text-white rounded-4 p-2" style="background: linear-gradient(to bottom right, #ccc, #eee);">
+                      <span class="badge bg-info text-dark position-absolute top-0 start-0 m-2">New</span>
+                      <h6 class="mt-5 mb-2">Item Title 5</h6>
+                      <div class="d-flex justify-content-between">
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      </div>
+                    </div>
+                    </div>
+
+                    <div class="col-6 col-md-3 mb-3">
+                    <div class="card text-white rounded-4 p-2" style="background: linear-gradient(to bottom right, #ccc, #eee);">
+                      <span class="badge bg-secondary position-absolute top-0 start-0 m-2">Deal</span>
+                      <h6 class="mt-5 mb-2">Item Title 6</h6>
+                      <div class="d-flex justify-content-between">
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      </div>
+                    </div>
+                    </div>
+
+                    <div class="col-6 col-md-3 mb-3 d-none d-md-block">
+                    <div class="card text-white rounded-4 p-2" style="background: linear-gradient(to bottom right, #ccc, #eee);">
+                      <span class="badge bg-dark position-absolute top-0 start-0 m-2">Pick</span>
+                      <h6 class="mt-5 mb-2">Item Title 7</h6>
+                      <div class="d-flex justify-content-between">
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      </div>
+                    </div>
+                    </div>
+
+                    <div class="col-6 col-md-3 mb-3 d-none d-md-block">
+                    <div class="card text-white rounded-4 p-2" style="background: linear-gradient(to bottom right, #ccc, #eee);">
+                      <span class="badge bg-light text-dark position-absolute top-0 start-0 m-2">Fresh</span>
+                      <h6 class="mt-5 mb-2">Item Title 8</h6>
+                      <div class="d-flex justify-content-between">
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+                      <img src="/img/a21.jpg" width="100" class="img-fluid rounded" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="container my-5">
+
+ <!-- New Arrivals Section -->
+<div class="container my-5">
+    <h4 class="fw-bold">New Arrivals</h4>
+    <hr class="mb-4" />
+
+    <!-- Desktop View (md and up) -->
+    <div class="d-none d-md-block">
+        <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-md-3">
+                <div class="card bg-light p-2 rounded-4">
+                    <img src="/img/item1.jpg" class="card-img-top rounded-4" alt="Moisturizer" />
+                    <div class="card-footer bg-transparent p-2">
+                        <div class="d-flex justify-content-between">
+                            <span class="text-muted small">₦5,000</span>
+                            <span class="text-muted small">In stock</span>
+                        </div>
+                        <div class="mt-2">
+                            <p class="mb-1 fw-semibold small">Moisturizer</p>
+                            <p class="mb-0 text-muted small">For dry skin</p>
                         </div>
                     </div>
-                    
-                    
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-3">
+                <div class="card bg-light p-2 rounded-4">
+                    <img src="/img/item2.jpg" class="card-img-top rounded-4" alt="Lip Gloss" />
+                    <div class="card-footer bg-transparent p-2">
+                        <div class="d-flex justify-content-between">
+                            <span class="text-muted small">₦3,200</span>
+                            <span class="text-muted small">Available</span>
+                        </div>
+                        <div class="mt-2">
+                            <p class="mb-1 fw-semibold small">Lip Gloss</p>
+                            <p class="mb-0 text-muted small">Cherry flavor</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-md-3">
+                <div class="card bg-light p-2 rounded-4">
+                    <img src="/img/item3.jpg" class="card-img-top rounded-4" alt="Face Wash" />
+                    <div class="card-footer bg-transparent p-2">
+                        <div class="d-flex justify-content-between">
+                            <span class="text-muted small">₦4,500</span>
+                            <span class="text-muted small">Low stock</span>
+                        </div>
+                        <div class="mt-2">
+                            <p class="mb-1 fw-semibold small">Face Wash</p>
+                            <p class="mb-0 text-muted small">Oil control</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="col-md-3">
+                <div class="card bg-light p-2 rounded-4">
+                    <img src="/img/item4.jpg" class="card-img-top rounded-4" alt="Body Lotion" />
+                    <div class="card-footer bg-transparent p-2">
+                        <div class="d-flex justify-content-between">
+                            <span class="text-muted small">₦2,800</span>
+                            <span class="text-muted small">Available</span>
+                        </div>
+                        <div class="mt-2">
+                            <p class="mb-1 fw-semibold small">Body Lotion</p>
+                            <p class="mb-0 text-muted small">For all skin</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile View (below md) -->
+    <div class="d-md-none">
+        <div id="arrivalSlider" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="card bg-light p-2 rounded-4">
+                                <img src="/img/item2.jpg" class="card-img-top rounded-4" alt="Lip Gloss" />
+                                <div class="card-footer bg-transparent p-2">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="text-muted small">₦3,200</span>
+                                        <span class="text-muted small">Available</span>
+                                    </div>
+                                    <div class="mt-2">
+                                        <p class="mb-1 fw-semibold small">Lip Gloss</p>
+                                        <p class="mb-0 text-muted small">Cherry flavor</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card bg-light p-2 rounded-4">
+                                <img src="/img/item3.jpg" class="card-img-top rounded-4" alt="Face Wash" />
+                                <div class="card-footer bg-transparent p-2">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="text-muted small">₦4,500</span>
+                                        <span class="text-muted small">Low stock</span>
+                                    </div>
+                                    <div class="mt-2">
+                                        <p class="mb-1 fw-semibold small">Face Wash</p>
+                                        <p class="mb-0 text-muted small">Oil control</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="card bg-light p-2 rounded-4">
+                                <img src="/img/item4.jpg" class="card-img-top rounded-4" alt="Body Lotion" />
+                                <div class="card-footer bg-transparent p-2">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="text-muted small">₦2,800</span>
+                                        <span class="text-muted small">Available</span>
+                                    </div>
+                                    <div class="mt-2">
+                                        <p class="mb-1 fw-semibold small">Body Lotion</p>
+                                        <p class="mb-0 text-muted small">For all skin</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card bg-light p-2 rounded-4">
+                                <img src="/img/item5.jpg" class="card-img-top rounded-4" alt="Perfume" />
+                                <div class="card-footer bg-transparent p-2">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="text-muted small">₦6,000</span>
+                                        <span class="text-muted small">Out of stock</span>
+                                    </div>
+                                    <div class="mt-2">
+                                        <p class="mb-1 fw-semibold small">Perfume</p>
+                                        <p class="mb-0 text-muted small">Vanilla scent</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Hero End --><!-- Hero End -->
 
-<!-- Keema Categories Start -->
-<h2 style="color: #2D7B30; margin-top: 100px; text-align: center; margin-bottom: 20px;">Explore Keema</h2>
-<div class="categories-container" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+<!-- Jumbotron Features Section -->
+<style>
+    .feature-jumbotron {
+        background: linear-gradient(135deg, #f8f9fa 80%, #e9ecef 100%);
+        border-radius: 18px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        padding: 2rem 1.5rem;
+        text-align: center;
+        margin-bottom: 20px;
+        min-height: 220px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .feature-icon {
+        font-size: 2.5rem;
+        color: #4e5cf4;
+        margin-bottom: 1rem;
+        background: #fff;
+        border-radius: 50%;
+        padding: 0.7rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .feature-title {
+        font-weight: 600;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: #2D7B30;
+    }
+    .feature-desc {
+        font-size: 0.98rem;
+        color: #555;
+        margin-bottom: 0;
+    }
+</style>
+<div class="container mb-5">
+    <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="feature-jumbotron">
+                <span class="feature-icon"><i class="bi bi-truck"></i></span>
+                <div class="feature-title">Free Delivery</div>
+                <p class="feature-desc">Enjoy free delivery on all orders above ₦10,000 nationwide.</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="feature-jumbotron">
+                <span class="feature-icon"><i class="bi bi-headset"></i></span>
+                <div class="feature-title">24hrs Support</div>
+                <p class="feature-desc">Our support team is available 24/7 to assist you anytime.</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="feature-jumbotron">
+                <span class="feature-icon"><i class="bi bi-shield-lock"></i></span>
+                <div class="feature-title">Secure Payment</div>
+                <p class="feature-desc">Pay safely with industry-leading encryption and fraud protection.</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="feature-jumbotron">
+                <span class="feature-icon"><i class="bi bi-patch-check"></i></span>
+                <div class="feature-title">Buyers Protection</div>
+                <p class="feature-desc">Shop with confidence — your purchases are always protected.</p>
+            </div>
+        </div>
+    </div>
+</div>
 
-<div class="category-grid">
-  <a href="/services/ride-booking" class="category-item" style="background-color: #f0f8f0;">
-    <img src="https://img.icons8.com/color/48/taxi.png" alt="Ride Booking" style="width: 40px; height: 40px; object-fit: contain; margin-bottom: 8px;">
-    <span class="category-name">Ride Booking</span>
-  </a>
-  <a href="/services/grocery-ordering" class="category-item" style="background-color: #fff1e6;">
-    <img src="https://img.icons8.com/color/48/grocery-bag.png" alt="Groceries" style="width: 40px; height: 40px; object-fit: contain; margin-bottom: 8px;">
-    <span class="category-name">Groceries</span>
-  </a>
-  <a href="/services/artisan-hiring" class="category-item" style="background-color: #f0f8f0;">
-    <img src="https://img.icons8.com/color/48/worker-male.png" alt="Artisan Hiring" style="width: 40px; height: 40px; object-fit: contain; margin-bottom: 8px;">
-    <span class="category-name">Artisan Hiring</span>
-  </a>
-  <a href="/services/fashion-shopping" class="category-item" style="background-color: #fff1e6;">
-    <img src="https://img.icons8.com/color/48/clothes.png" alt="Fashion Shopping" style="width: 40px; height: 40px; object-fit: contain; margin-bottom: 8px;">
-    <span class="category-name">Fashion Shopping</span>
-  </a>
-  <a href="/services/car-purchase" class="category-item" style="background-color: #f0f8f0;">
-    <img src="https://img.icons8.com/color/48/car--v1.png" alt="Car Purchase" style="width: 40px; height: 40px; object-fit: contain; margin-bottom: 8px;">
-    <span class="category-name">Car Purchase</span>
-  </a>
-  <a href="/services/real-estate" class="category-item" style="background-color: #fff1e6;">
-    <img src="https://img.icons8.com/color/48/real-estate.png" alt="Real Estate" style="width: 40px; height: 40px; object-fit: contain; margin-bottom: 8px;">
-    <span class="category-name">Real Estate</span>
-  </a>
-  <a href="/services/computers" class="category-item" style="background-color: #f0f8f0;">
-    <img src="https://img.icons8.com/color/48/laptop.png" alt="Computers" style="width: 40px; height: 40px; object-fit: contain; margin-bottom: 8px;">
-    <span class="category-name">Computers</span>
-  </a>
-  <a href="/services/mobile-gadgets" class="category-item" style="background-color: #fff1e6;">
-    <img src="https://img.icons8.com/color/48/smartphone-tablet.png" alt="Mobile and Gadgets" style="width: 40px; height: 40px; object-fit: contain; margin-bottom: 8px;">
-    <span class="category-name">Mobile & Gadgets</span>
-  </a>
+
+</div>
+<!-- Product Slider -->
+<div class="container my-5">
+  <h2 class="text-center mb-4"></h2>
+  <div class="overflow-hidden position-relative">
+    <div class="d-flex product-track" id="productTrack">
+      <!-- Dynamically render or duplicate for demo -->
+      <% for (let i = 1; i <= 20; i++) { %>
+        <div class="product-slide px-2">
+          <img src="img/a21.jpg" alt="Product <%= i %>" class="img-fluid rounded">
+        </div>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<!-- Styles -->
+<style>
+  .product-track {
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .product-slide {
+    flex: 0 0 auto;
+  }
+
+  /* 8 per screen on large screens (≥1200px) */
+  @media (min-width: 1200px) {
+    .product-slide {
+      width: 12.5%; /* 100 / 8 */
+    }
+  }
+
+  /* 4 per screen on all smaller screens (<1200px) */
+  @media (max-width: 1199.98px) {
+    .product-slide {
+      width: 25%; /* 100 / 4 */
+    }
+  }
+</style>
+
+<!-- JavaScript for Auto Slide -->
+<script>
+  const track = document.getElementById('productTrack');
+  const slides = track.querySelectorAll('.product-slide');
+  let index = 0;
+
+  function getSlideWidth() {
+    return slides[0].offsetWidth;
+  }
+
+  function slideNext() {
+    const slideWidth = getSlideWidth();
+    const visibleSlides = Math.floor(track.parentElement.offsetWidth / slideWidth);
+    const maxIndex = slides.length - visibleSlides;
+
+    index = (index >= maxIndex) ? 0 : index + 1;
+    track.style.transform = `translateX(-${index * slideWidth}px)`;
+  }
+
+  // Autoplay every 2.5s
+  setInterval(slideNext, 2500);
+
+  // Reset transform on window resize
+  window.addEventListener('resize', () => {
+    const slideWidth = getSlideWidth();
+    track.style.transform = `translateX(-${index * slideWidth}px)`;
+  });
+</script>
+
+
+<div  class="container">
+   <div id="teamCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+  <div style="border-radius: 15px;" class="carousel-inner">
+
+    <!-- Slide 1 -->
+    <div class="carousel-item active">
+      <div class="jumbotron bg-light text-center position-relative py-5 px-3">
+        <!-- Opening quote -->
+        <div class="position-absolute top-0 start-0 fs-1 text-muted ms-3 mt-3">“</div>
+
+        <!-- Team Content -->
+        <img src="/img/ai.jpg" alt="Member 1" class="rounded-circle mb-3" width="150" height="150">
+        <h4 class="mb-1">Jane Doe</h4>
+        <p class="text-muted mb-2">Product Designer</p>
+        <div class="d-flex justify-content-center gap-3 mb-4">
+          <a href="#" class="text-dark"><i class="bi bi-linkedin fs-5"></i></a>
+          <a href="#" class="text-dark"><i class="bi bi-instagram fs-5"></i></a>
+          <a href="#" class="text-dark"><i class="bi bi-twitter fs-5"></i></a>
+          <a href="#" class="text-dark"><i class="bi bi-facebook fs-5"></i></a>
+        </div>
+
+        <!-- Closing quote -->
+        <div class="position-absolute bottom-0 end-0 fs-1 text-muted me-3 mb-3">”</div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <div class="jumbotron bg-light text-center position-relative py-5 px-3">
+        <div class="position-absolute top-0 start-0 fs-1 text-muted ms-3 mt-3">“</div>
+
+        <img src="/img/ai.jpg" alt="Member 2" class="rounded-circle mb-3" width="150" height="150">
+        <h4 class="mb-1">John Smith</h4>
+        <p class="text-muted mb-2">Lead Developer</p>
+        <div class="d-flex justify-content-center gap-3 mb-4">
+          <a href="#" class="text-dark"><i class="bi bi-linkedin fs-5"></i></a>
+          <a href="#" class="text-dark"><i class="bi bi-instagram fs-5"></i></a>
+          <a href="#" class="text-dark"><i class="bi bi-twitter fs-5"></i></a>
+          <a href="#" class="text-dark"><i class="bi bi-facebook fs-5"></i></a>
+        </div>
+
+        <div class="position-absolute bottom-0 end-0 fs-1 text-muted me-3 mb-3">”</div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-item">
+      <div class="jumbotron bg-light text-center position-relative py-5 px-3">
+        <div class="position-absolute top-0 start-0 fs-1 text-muted ms-3 mt-3">“</div>
+
+        <img src="/img/ai.jpg" alt="Member 3" class="rounded-circle mb-3" width="150" height="150">
+        <h4 class="mb-1">Maria Lopez</h4>
+        <p class="text-muted mb-2">Marketing Lead</p>
+        <div class="d-flex justify-content-center gap-3 mb-4">
+          <a href="#" class="text-dark"><i class="bi bi-linkedin fs-5"></i></a>
+          <a href="#" class="text-dark"><i class="bi bi-instagram fs-5"></i></a>
+          <a href="#" class="text-dark"><i class="bi bi-twitter fs-5"></i></a>
+          <a href="#" class="text-dark"><i class="bi bi-facebook fs-5"></i></a>
+        </div>
+
+        <div class="position-absolute bottom-0 end-0 fs-1 text-muted me-3 mb-3">”</div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 </div>
-<!-- Keema Categories End -->
-

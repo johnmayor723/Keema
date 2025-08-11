@@ -1,0 +1,41 @@
+<div class="container mt-5">
+    <!-- Dashboard Header -->
+    <header class="mb-4">
+        <h1 class="display-5 text-primary">Welcome to Your Dashboard, <%= vendor.name %>!</h1>
+        <nav>
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a href="/vendor/products" class="nav-link">Manage Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/vendor/logout" class="nav-link text-danger">Logout</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Vendor Information Section -->
+    <main>
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Your Information</h2>
+            </div>
+            <div class="card-body">
+                <p><strong>Email:</strong> <%= vendor.email %></p>
+                <p><strong>Phone:</strong> <%= vendor.phone %></p>
+                <p><strong>Address:</strong> <%= vendor.address %></p>
+            </div>
+        </section>
+
+        <!-- Actions Section -->
+        <section class="card shadow-sm">
+            <div class="card-header bg-success text-white">
+                <h2 class="h5 mb-0">Actions</h2>
+            </div>
+            <div class="card-body">
+                <a href="/vendor/products/create" class="btn btn-primary me-2">Add New Product</a>
+                <a href="/vendor/products/manage" class="btn btn-outline-secondary">Manage Existing Products</a>
+            </div>
+        </section>
+    </main>
+</div>

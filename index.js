@@ -21,6 +21,8 @@ const orderRoutes = require("./api/routes/orderRoutes");
 const cartRoutes = require("./api/routes/cartRoutes");
 const categoryRoutes = require("./api/routes/categoryRoutes");
 const agentRoutes = require("./api/routes/agentRoutes");
+const vendorRoutes = require('./vendor/src/routes/vendor');
+const vendorProductRoutes = require('./vendor/src/routes/product');
 
 
 // MongoDB Connection URL
@@ -95,6 +97,8 @@ app.use('/api/agents', agentRoutes);
 app.use("/", indexRouter);
 app.use("/cart", cartRouter);
 app.use("/payments", paymentRouter); 
+app.use('/vendor', vendorRoutes);
+app.use('/vendor/product', vendorProductRoutes);
 
 
 // Start the server

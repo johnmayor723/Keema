@@ -5,13 +5,14 @@ const nodemailer = require("nodemailer");
 const { generateOrderEmailHTML } = require("../helpers");
 
 const PAYSTACK_SECRET_KEY = "sk_test_d754fb2a648e8d822b09aa425d13fc62059ca08e";
-const API_BASE_URL = "https://api.foodliie.com";
+const API_BASE_URL = "https://keema.com.ng";
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: "marketpicks723@gmail.com",
-    pass: "yvbqttivjtmvlbhp", // Replace with actual password
+    pass: "yvbqttivjtmvlbhp", 
+    // Replace with actual password
   },
 });
 
@@ -28,7 +29,8 @@ const transporter = nodemailer.createTransport({
   },
 });*/
 
-// Payment function
+//Payment function 
+
 async function processOrderPayment(req, res, finalAmount) {
   try {
     const { name, address, mobile, email, ordernotes, paymentmethod } = req.body;
@@ -65,7 +67,7 @@ async function processOrderPayment(req, res, finalAmount) {
         };
         console.log("address payload:", addressPayload);
         const response = await axios.put(
-          "https://api.foodliie.com/api/auth/update-address",
+          "https://keema.com.ng/api/auth/update-address",
           addressPayload,
           {
             headers: {
@@ -128,10 +130,10 @@ async function processOrderPayment(req, res, finalAmount) {
     const paystackData = {
       email,
       amount: finalAmount * 100, // Amount in kobo
-      callback_url: "https://api.foodliie.com/payments/callback",
+      callback_url: "https://keema.com.ng/payments/callback",
     };
 
-    const response = await axios.post("https://api.foodliie.com/api/orders/initialize", paystackData);
+    const response = await axios.post("https://keema.com.ng/api/orders/initialize", paystackData);
 
     if (response.data) {
       const authorizationUrl = response.data.authUrl;
@@ -198,7 +200,7 @@ router.post("/", async (req, res, next) => {
     console.log("Making axios call to validate coupon");
 
     // Call to validate coupon
-    const { data } = await axios.post("https://api.foodliie.com/api/auth/validate-coupon", {
+    const { data } = await axios.post("https://keema.com.ng/api/auth/validate-coupon", {
       userId,
     });
 
@@ -261,7 +263,7 @@ router.post("/process", async (req, res) => {
     console.log("Discount code provided:", discountCode || "None");
 
     // Step 1: Check for active coupon
-    const couponResponse = await axios.post('https://api.foodliie.com/api/auth/validate-coupon', { userId });
+    const couponResponse = await axios.post('https://keema.com.ng/api/auth/validate-coupon', { userId });
     console.log("Coupon validation response:", couponResponse.data);
 
     const activeCoupon = couponResponse.data?.coupon;
@@ -307,7 +309,7 @@ router.post("/process", async (req, res) => {
       // Case 3: No active coupon, but discountCode is provided → Verify and activate
       console.log("No active coupon, verifying discount code:", discountCode);
 
-      const verifyResponse = await axios.post("https://api.foodliie.com/api/agent/verify-couponCode", {
+      const verifyResponse = await axios.post("https://keema.com.ng/api/agent/verify-couponCode", {
         couponCode: discountCode,
       });
 
@@ -386,7 +388,7 @@ router.post("/process2", async (req, res) => {
     console.log("Discount code provided:", discountCode || "None");
 
     // Step 1: Check for active coupon
-    const couponResponse = await axios.post('https://api.foodliie.com/api/auth/validate-coupon', { userId });
+    const couponResponse = await axios.post('https://keema.com.ng/api/auth/validate-coupon', { userId });
     console.log("Coupon validation response:", couponResponse.data);
 
     const activeCoupon = couponResponse.data?.coupon;
@@ -432,7 +434,7 @@ router.post("/process2", async (req, res) => {
       // Case 3: No active coupon, but discountCode is provided → Verify and activate
       console.log("No active coupon, verifying discount code:", discountCode);
 
-      const verifyResponse = await axios.post("https://api.foodliie.com/api/agent/verify-couponCode", {
+      const verifyResponse = await axios.post("https://keema.com.ng/api/agent/verify-couponCode", {
         couponCode: discountCode,
       });
 

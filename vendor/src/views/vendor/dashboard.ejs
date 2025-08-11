@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Dashboard</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <h1>Welcome to Your Dashboard, <%= vendor.name %>!</h1>
+        <nav>
+            <ul>
+                <li><a href="/vendor/products">Manage Products</a></li>
+                <li><a href="/vendor/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Your Information</h2>
+            <p><strong>Email:</strong> <%= vendor.email %></p>
+            <p><strong>Phone:</strong> <%= vendor.phone %></p>
+            <p><strong>Address:</strong> <%= vendor.address %></p>
+        </section>
+
+        <section>
+            <h2>Actions</h2>
+            <p><a href="/vendor/products/create" class="btn">Add New Product</a></p>
+            <p><a href="/vendor/products/manage" class="btn">Manage Existing Products</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Vendor Onboarding App</p>
+    </footer>
+</body>
+</html>
