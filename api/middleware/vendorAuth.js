@@ -1,5 +1,5 @@
 const Vendor = require('../models/vendor');
-const { checkPermissions } = require('../utils/permissions');
+const { checkPermissions } = require('../../vendor/src/utils/permissions');
 
 // Middleware to authenticate vendor
 exports.vendorAuth = async (req, res, next) => {

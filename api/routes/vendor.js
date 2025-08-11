@@ -14,7 +14,7 @@ const {
     signinPage // if you have a standard vendor signin page
 } = require('../controllers/vendorController');
 
-//const { vendorAuth, isAdmin } = require('../../../api/middleware/vendorAuth');
+const { vendorAuth, isAdmin } = require('../../../api/middleware/vendorAuth');
 
 // =======================
 // Vendor Routes
@@ -33,17 +33,17 @@ router.get('/signin', signinPage);
 router.get('/', getAllVendors);
 
 // Vendor dashboard (protected)
-router.get('/dashboard/:id',  getVendorDetails);
+router.get('/dashboard/:id', vendorAuth, getVendorDetails);
 
 // =======================
 // Admin-Only Vendor Management
 // =======================
 
 // Update vendor (admin only)
-router.put('/vendors/:id',  updateVendor);
+router.put('/vendors/:id', vendorAuth, isAdmin, updateVendor);
 
 // Delete vendor (admin only)
-router.delete('/vendors/:id',  deleteVendor);
+router.delete('/vendors/:id', vendorAuth, isAdmin, deleteVendor);
 
 // =======================
 // Vendor Admin Routes

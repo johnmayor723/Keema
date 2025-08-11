@@ -12,6 +12,7 @@ const orderRoutes = require('./routes/orderRoutes');
 const cartRoutes = require('./routes/cartRoutes');
 const categoryRoutes =require('./routes/categoryRoutes');
 const agentRoutes =require('./routes/agentRoutes');
+const vendorRoutes =require('./routes/vendor');
 
 
 
@@ -50,6 +51,7 @@ app.use("/api/products", productRoutes)
 app.use('/api/orders', orderRoutes);
 app.use('/api/carts', cartRoutes);
 app.use('/api/categories', categoryRoutes);
+app.use('/api/vendor', vendorRoutes);
 
 
 // Root route
